@@ -11,8 +11,9 @@ const CharacterList = () => {
                 { 
                     store.characters.map((character, index) => {
                         return (
-                            <div className="col-12 col-md-4" key={index}>
+                            <div className="col-12 col-md-4 mb-4" key={index}>
                                 <Character
+                                    id={character.id}
                                     image={character.image} 
                                     name={character.name} 
                                     gender={character.gender} 

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const Character = (props) => {
     return (
@@ -8,13 +9,16 @@ const Character = (props) => {
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>
                 <p className="card-text">{props.gender}</p>
-                <a href="#" className={`btn btn-outline-${props.status == 'Alive' ? 'success' : 'danger'}`}>More info</a>
+                <Link to={`/characterinfo/${props.id}`} className={`btn btn-outline-${props.status == 'Alive' ? 'success' : 'danger'}`}>
+                    More info
+                </Link>
             </div>
         </div>
     )
 };
 
 Character.propTypes = {
+    id: PropTypes.number,
     image: PropTypes.string,
     name: PropTypes.string,
     gender: PropTypes.string,

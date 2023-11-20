@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
     return (
-        <div className="card mb-3">
+        <div className={`card p-3 border-2 border-outline ${props.status == 'Alive' ? 'border-success' : 'border-danger'}`}>
             <div className="row g-0">
                 <div className="col-md-4">
                 <img src={props.image} className="img-fluid rounded-start" alt="..."/>
@@ -15,6 +16,8 @@ const CharacterDetail = (props) => {
                     <p className="card-text">Gender: {props.gender}</p>
                     <p className="card-text">Origin: {props.origin}</p>
                     <p className="card-text">Location: {props.location}</p>
+                    <p className={`card-text text-${props.status == 'Alive' ? 'success' : 'danger'}`}>Status: {props.status}</p>
+                    <Link to="/" className="btn btn-outline-dark">Back</Link>
                 </div>
                 </div>
             </div>
@@ -29,6 +32,7 @@ CharacterDetail.propTypes = {
     gender: PropTypes.string,
     origin: PropTypes.string,
     location: PropTypes.string,
+    status: PropTypes.string,
   };
 
 export default CharacterDetail;
